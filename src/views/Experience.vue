@@ -34,10 +34,9 @@
             <div class="card-number">NEXUS S3 PRO</div>
           </div>
           <div class="card-face back">
-            <div class="back-content">
-              <p>QUANTUM ENCRYPTION ENABLED</p>
-              <div class="qr-code"></div>
-            </div>
+            <div class="card-logo">LUMINA</div>
+            <div class="card-chip"></div>
+            <div class="card-number">NEXUS S3 PRO</div>
           </div>
         </div>
       </div>
