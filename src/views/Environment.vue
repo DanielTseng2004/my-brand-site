@@ -263,7 +263,7 @@
 
 <style scoped>
 .env {
-  background: #fff;
+  background: var(--bg-main);
 }
 
 /* Hero Section */
@@ -357,7 +357,7 @@ svg {
 
 .bg {
   fill: none;
-  stroke: #f1f5f9;
+  stroke: var(--accent-soft);
   stroke-width: 8;
 }
 
@@ -377,6 +377,7 @@ svg {
   transform: translate(-50%, -50%);
   font-size: 48px;
   font-weight: 800;
+  color: var(--text-primary);
 }
 
 .label {

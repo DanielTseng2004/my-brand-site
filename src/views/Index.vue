@@ -247,7 +247,7 @@ h1 {
 
 .btn-primary {
   background: var(--accent);
-  color: #fff;
+  color: var(--bg-main);
   border: none;
   padding: 18px 40px;
   border-radius: 30px;
@@ -408,11 +408,11 @@ h1 {
 /* Scenarios Section */
 .scenarios {
   padding: 120px 0;
-  background: #fff;
+  background: var(--bg-main);
 }
 
 .bg-white {
-  background: #fff;
+  background: var(--bg-main);
 }
 
 .split {

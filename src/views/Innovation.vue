@@ -341,7 +341,7 @@ th {
 
 .spec-name {
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
   width: 25%;
 }
 
@@ -356,7 +356,7 @@ td {
 }
 
 tr:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--accent-soft);
 }
 
 /* Innovation Timeline */
@@ -405,7 +405,7 @@ tr:hover {
   width: 20px;
   height: 20px;
   background: var(--accent);
-  border: 4px solid #fff;
+  border: 4px solid var(--bg-main);
   border-radius: 50%;
   position: absolute;
   left: 50%;
@@ -416,7 +416,7 @@ tr:hover {
 .timeline-content {
   width: calc(50% - 60px);
   padding: 30px;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--accent-soft);
   border-radius: 20px;
   border: 1px solid var(--border);
   backdrop-filter: blur(10px);

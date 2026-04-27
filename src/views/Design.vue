@@ -232,7 +232,7 @@
 <style scoped>
 .design-view {
   padding: 150px 0;
-  background: #fff;
+  background: var(--bg-main);
 }
 
 .intro {
@@ -342,7 +342,7 @@
   width: 100%;
   height: 150px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .color-info h4 {
@@ -384,7 +384,7 @@
 
 .typo-item {
   padding: 40px;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--accent-soft);
   border-radius: 20px;
   border: 1px solid var(--border);
 }

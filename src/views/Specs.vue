@@ -342,7 +342,7 @@ import SpecsComparator from "../components/SpecsComparator.vue";
   display: flex;
   padding: 20px;
   border-bottom: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--accent-soft);
 }
 
 .spec-row:nth-child(even) {
@@ -352,7 +352,7 @@ import SpecsComparator from "../components/SpecsComparator.vue";
 .spec-label {
   flex: 0 0 40%;
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
 }
 
 .spec-value {
@@ -393,7 +393,7 @@ import SpecsComparator from "../components/SpecsComparator.vue";
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #fff;
+  background: var(--bg-main);
   color: var(--accent);
   border: 2px solid var(--accent);
   padding: 14px 28px;
@@ -446,7 +446,7 @@ import SpecsComparator from "../components/SpecsComparator.vue";
   font-size: 18px;
   margin-bottom: 15px;
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
 }
 
 .faq-item p {

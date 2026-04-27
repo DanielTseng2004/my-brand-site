@@ -142,7 +142,7 @@ const toggleModel = (model: string) => {
 
 .toggle-btn.active {
   background: var(--accent);
-  color: #fff;
+  color: var(--bg-main);
   border-color: var(--accent);
 }
 
@@ -173,7 +173,7 @@ th {
 
 .spec-name {
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
   width: 25%;
 }
 
@@ -183,7 +183,7 @@ th {
 }
 
 tr:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--accent-soft);
 }
 
 @media (max-width: 768px) {

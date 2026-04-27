@@ -60,10 +60,11 @@
 
 <style scoped>
 .footer {
-  background: #0f172a;
-  color: #e2e8f0;
+  background: var(--bg-main);
+  color: var(--text-secondary);
   padding: 80px 0 0;
   margin-top: 120px;
+  border-top: 1px solid var(--border);
 }
 
 .footer-content {
@@ -76,20 +77,20 @@
 .footer-section h3 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .footer-section h4 {
   font-size: 16px;
   margin-bottom: 20px;
-  color: #fff;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
 .footer-section p {
   font-size: 15px;
   line-height: 1.6;
-  color: #94a3b8;
+  color: var(--text-secondary);
   margin-bottom: 20px;
 }
 
@@ -102,7 +103,7 @@
 }
 
 .footer-section a {
-  color: #94a3b8;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: 0.3s;
   font-size: 14px;

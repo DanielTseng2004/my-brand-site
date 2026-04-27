@@ -14,13 +14,17 @@
         <router-link to="/environment">永續循環</router-link>
         <router-link to="/specs">核心規格</router-link>
       </div>
-      <button class="cta-btn">立即配置</button>
+      <div class="nav-actions">
+        <button class="cta-btn">立即配置</button>
+        <ThemeToggle />
+      </div>
     </div>
   </nav>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
+import ThemeToggle from "./ThemeToggle.vue";
 const isScrolled = ref(false);
 onMounted(() => {
   window.addEventListener("scroll", () => {
@@ -40,10 +44,11 @@ onMounted(() => {
   border-bottom: 1px solid transparent;
 }
 .is-scrolled {
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--nav-bg);
+  color: var(--accent);
   backdrop-filter: blur(20px);
   height: 60px;
-  border-bottom: 1px solid rgba(0, 102, 204, 0.1);
+  border-bottom: 1px solid var(--border);
 }
 .nav-inner {
   display: flex;
@@ -56,7 +61,7 @@ onMounted(() => {
   align-items: center;
   gap: 10px;
   font-weight: 800;
-  color: #0066cc;
+  color: var(--accent);
   text-decoration: none;
 }
 .logo-icon {
@@ -74,14 +79,20 @@ onMounted(() => {
   font-weight: 500;
 }
 .links a:hover {
-  color: #0066cc;
+  color: var(--accent);
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 .cta-btn {
-  background: #0066cc;
-  color: white;
+  background: var(--accent);
+  color: var(--bg-main);
   border: none;
   padding: 8px 20px;
   border-radius: 20px;
   cursor: pointer;
+  font-weight: 600;
 }
 </style>
