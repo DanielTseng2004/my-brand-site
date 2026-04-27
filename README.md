@@ -1,4 +1,4 @@
-# LUMINA 品牌網站專案
+# LUMINA 品牌網站專案(Manus AI實作測試)
 
 這是一個基於 **Vue 3 + Vite + TypeScript** 開發的高級科技品牌網站，旨在展示次世代光子技術的創新與美學。
 
@@ -73,4 +73,3 @@ pnpm preview
 ```
 
 ---
-© 2026 LUMINA Technologies. 保留所有權利。
