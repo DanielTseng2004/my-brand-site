@@ -1,5 +1,76 @@
-# Vue 3 + TypeScript + Vite
+# LUMINA 品牌網站專案
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+這是一個基於 **Vue 3 + Vite + TypeScript** 開發的高級科技品牌網站，旨在展示次世代光子技術的創新與美學。
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## 🚀 專案亮點
+
+### 1. 核心內容與功能
+
+- **全方位品牌展示**：涵蓋核心創新、設計哲學、環保承諾與詳細規格對比。
+- **豐富內容區塊**：包含技術演進時間線、全球研發數據、客戶見證與 2030 永續目標。
+- **互動式規格表**：內建 `SpecsComparator` 組件，支援多型號產品參數即時對比。
+
+### 2. 沉浸式互動體驗
+
+- **動態視覺反饋**：整合滾動進度條、自定義滑鼠跟隨動畫與毛玻璃導覽列。
+- **流暢動畫系統**：利用 GSAP 與 VueUse Motion 實現平滑的頁面切換與元素進入效果。
+- **平滑滾動**：整合 Lenis 引擎，提供極致的網頁瀏覽手感。
+
+### 3. 現代化技術架構
+
+- **響應式設計**：針對行動端、平板與桌面端進行深度優化。
+- **高效樣式管理**：採用 CSS 變數與漸層定義，支援深色模式預留與無障礙訪問。
+
+## 📂 專案結構
+
+| 目錄/文件         | 說明                                                                       |
+| :---------------- | :------------------------------------------------------------------------- |
+| `src/components/` | 存放通用組件（如 Footer, ScrollProgress, CursorFollower, SpecsComparator） |
+| `src/views/`      | 存放主要頁面視圖（Index, Innovation, Design, Environment, Specs）          |
+| `src/router/`     | 路由配置、導航守衛與頁面切換邏輯                                           |
+| `src/style.css`   | 全域樣式、CSS 變數、動畫定義與響應式工具類                                 |
+| `public/`         | 存放 Favicon、靜態圖片與公開資源                                           |
+
+## 📦 核心套件說明
+
+| 套件名稱           | 版本    | 用途說明                                      |
+| :----------------- | :------ | :-------------------------------------------- |
+| **Vue 3**          | ^3.5.x  | 核心框架，採用 Composition API (Script Setup) |
+| **Vue Router**     | ^4.6.x  | 單頁面應用路由管理與過渡動畫控制              |
+| **GSAP**           | ^3.15.x | 高性能網頁動畫引擎，驅動複雜視覺效果          |
+| **Lenis**          | ^1.3.x  | 輕量級平滑滾動插件，提升瀏覽體驗              |
+| **@vueuse/motion** | ^3.0.x  | 聲明式動畫插件，簡化元素進入/離開動畫         |
+| **TypeScript**     | ~6.0.x  | 提供強類型檢查，確保大型專案的代碼健壯性      |
+
+## 🛠️ 開發與部署指令
+
+### 1. 安裝依賴
+
+```bash
+# 使用 pnpm 安裝（推薦）
+pnpm install
+
+# 或使用 npm 安裝
+npm install
+```
+
+### 2. 本地開發
+
+```bash
+pnpm dev
+```
+
+### 3. 專案打包
+
+```bash
+pnpm build
+```
+
+### 4. 預覽正式版本
+
+```bash
+pnpm preview
+```
+
+---
+© 2026 LUMINA Technologies. 保留所有權利。
