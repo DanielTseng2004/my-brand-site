@@ -13,6 +13,7 @@
         <router-link to="/design">工業美學</router-link>
         <router-link to="/environment">永續循環</router-link>
         <router-link to="/specs">核心規格</router-link>
+        <router-link to="/experience">互動體驗</router-link>
       </div>
       <div class="nav-actions">
         <button class="cta-btn">立即配置</button>
