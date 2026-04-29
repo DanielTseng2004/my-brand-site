@@ -5,11 +5,13 @@ import Design from "../views/Design.vue";
 import Environment from "../views/Environment.vue";
 import Specs from "../views/Specs.vue";
 import Experience from "../views/Experience.vue";
+import ProductList from "../views/ProductList.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", component: Index },
+    { path: "/products", component: ProductList },
     { path: "/innovation", component: Innovation },
     { path: "/design", component: Design },
     { path: "/environment", component: Environment },

@@ -9,6 +9,7 @@
         <span>LUMINA</span>
       </router-link>
       <div class="links">
+        <router-link to="/products">產品系列</router-link>
         <router-link to="/innovation">未來技術</router-link>
         <router-link to="/design">工業美學</router-link>
         <router-link to="/environment">永續循環</router-link>
@@ -73,7 +74,7 @@ onMounted(() => {
   transform: rotate(45deg);
 }
 .links a {
-  margin: 0 20px;
+  margin: 0 15px;
   text-decoration: none;
   color: var(--text-secondary);
   font-size: 14px;
@@ -81,6 +82,10 @@ onMounted(() => {
 }
 .links a:hover {
   color: var(--accent);
+}
+.links a.router-link-active {
+  color: var(--accent);
+  font-weight: 700;
 }
 .nav-actions {
   display: flex;
@@ -95,5 +100,12 @@ onMounted(() => {
   border-radius: 20px;
   cursor: pointer;
   font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .links a {
+    margin: 0 10px;
+    font-size: 13px;
+  }
 }
 </style>

@@ -2,8 +2,8 @@
   <div class="specs container">
     <!-- Header -->
     <div class="specs-header">
-      <h1>LUMINA Nexus 產品規格</h1>
-      <p>比較我們的三款旗艦產品，找到最適合您的解決方案。</p>
+      <h1>LUMINA 全系列產品規格</h1>
+      <p>從個人終端到企業級伺服器，比較我們的十款旗艦產品，找到最適合您的解決方案。</p>
     </div>
     
     <!-- Specs Comparator Component -->
@@ -18,27 +18,19 @@
         <div class="specs-details">
           <div class="spec-row">
             <div class="spec-label">CPU 架構</div>
-            <div class="spec-value">Photon-S3 光子計算架構</div>
+            <div class="spec-value">Photon-S3 光子計算架構 / Q1 量子混合架構</div>
           </div>
           <div class="spec-row">
             <div class="spec-label">核心數量</div>
-            <div class="spec-value">8-16 核心（根據型號）</div>
+            <div class="spec-value">2-64 核心（根據型號）</div>
           </div>
           <div class="spec-row">
             <div class="spec-label">時鐘速度</div>
-            <div class="spec-value">5.0-8.0 GHz</div>
+            <div class="spec-value">3.0-12.0 GHz</div>
           </div>
           <div class="spec-row">
             <div class="spec-label">處理延遲</div>
-            <div class="spec-value">0.01ms（超低延遲）</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">功耗</div>
-            <div class="spec-value">0.5-2.0W</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">熱設計功耗 (TDP)</div>
-            <div class="spec-value">1.5-3.0W</div>
+            <div class="spec-value">0.001ms - 0.01ms</div>
           </div>
         </div>
       </div>
@@ -48,177 +40,15 @@
         <div class="specs-details">
           <div class="spec-row">
             <div class="spec-label">無線標準</div>
-            <div class="spec-value">6G / 5G / WiFi 7</div>
+            <div class="spec-value">6G / 5G / WiFi 7 / 量子糾纏連結</div>
           </div>
           <div class="spec-row">
-            <div class="spec-label">6G 速率</div>
-            <div class="spec-value">100 Gbps</div>
+            <div class="spec-label">最高速率</div>
+            <div class="spec-value">1000 Gbps (Enterprise 型號)</div>
           </div>
           <div class="spec-row">
-            <div class="spec-label">量子連結</div>
-            <div class="spec-value">支援量子密鑰分發</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">多頻段支援</div>
-            <div class="spec-value">Sub-6GHz / mmWave / THz</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">有線連接</div>
-            <div class="spec-value">USB-C 3.2 Gen 2x2</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">藍牙</div>
-            <div class="spec-value">Bluetooth 5.3 + LE Audio</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="specs-category">
-        <h3>感測系統</h3>
-        <div class="specs-details">
-          <div class="spec-row">
-            <div class="spec-label">感測點數</div>
-            <div class="spec-value">10,000+</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">感測精度</div>
-            <div class="spec-value">±0.1mm</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">感測類型</div>
-            <div class="spec-value">LiDAR / 紅外線 / 超聲波 / 多光譜</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">視場角 (FOV)</div>
-            <div class="spec-value">360°</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">最大感測距離</div>
-            <div class="spec-value">500 公尺</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">刷新率</div>
-            <div class="spec-value">120 Hz</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="specs-category">
-        <h3>安全與加密</h3>
-        <div class="specs-details">
-          <div class="spec-row">
-            <div class="spec-label">加密標準</div>
-            <div class="spec-value">量子級別 / 256-bit AES</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">密鑰交換</div>
-            <div class="spec-value">量子密鑰分發 (QKD)</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">安全芯片</div>
-            <div class="spec-value">TPM 2.0 + 專有安全處理器</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">生物識別</div>
-            <div class="spec-value">指紋 / 面部識別 / 虹膜掃描</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">威脅檢測</div>
-            <div class="spec-value">實時 AI 驅動的異常檢測</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">安全認證</div>
-            <div class="spec-value">CC EAL 5+ / FIPS 140-3</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="specs-category">
-        <h3>電源與續航</h3>
-        <div class="specs-details">
-          <div class="spec-row">
-            <div class="spec-label">電池容量</div>
-            <div class="spec-value">5,000-10,000 mAh</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">待機時間</div>
-            <div class="spec-value">240-600 小時</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">工作時間</div>
-            <div class="spec-value">48-120 小時</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">快速充電</div>
-            <div class="spec-value">0-100% 在 30 分鐘內</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">無線充電</div>
-            <div class="spec-value">支援 15W 無線充電</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">電池循環次數</div>
-            <div class="spec-value">1,000+ 次循環</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="specs-category">
-        <h3>物理特性</h3>
-        <div class="specs-details">
-          <div class="spec-row">
-            <div class="spec-label">尺寸</div>
-            <div class="spec-value">145 × 72 × 8.5 mm</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">重量</div>
-            <div class="spec-value">185-210 克</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">材質</div>
-            <div class="spec-value">航空級鋁合金 / 石墨烯複合 / 藍寶石玻璃</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">防水等級</div>
-            <div class="spec-value">IP68 / IP69K</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">防塵等級</div>
-            <div class="spec-value">IP6X</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">工作溫度</div>
-            <div class="spec-value">-20°C 至 60°C</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="specs-category">
-        <h3>可靠性與保修</h3>
-        <div class="specs-details">
-          <div class="spec-row">
-            <div class="spec-label">可靠性評級</div>
-            <div class="spec-value">99.999% (5 個 9)</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">平均故障間隔時間</div>
-            <div class="spec-value">100,000+ 小時</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">標準保修</div>
-            <div class="spec-value">2-5 年（根據型號）</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">意外損傷保護</div>
-            <div class="spec-value">可選購買</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">軟體更新</div>
-            <div class="spec-value">終身免費更新</div>
-          </div>
-          <div class="spec-row">
-            <div class="spec-label">技術支援</div>
-            <div class="spec-value">24/7 全球支援</div>
+            <div class="spec-label">衛星通訊</div>
+            <div class="spec-value">支援全球低軌衛星直接連線</div>
           </div>
         </div>
       </div>
@@ -237,10 +67,6 @@
           <span class="icon">📊</span>
           下載 Excel 對比表
         </button>
-        <button class="btn-download">
-          <span class="icon">📋</span>
-          下載技術白皮書
-        </button>
       </div>
     </section>
     
@@ -249,30 +75,16 @@
       <h2>常見問題</h2>
       <div class="faq-items">
         <div class="faq-item glass">
-          <h3>Nexus Standard 和 Nexus Pro 的主要區別是什麼？</h3>
+          <h3>如何選擇適合我的 Nexus 產品？</h3>
           <p>
-            主要區別在於處理核心數量（8 vs 12）、感測精度、電池容量和保修期限。Nexus Pro 提供更高的性能和更長的保修期。
+            如果您是日常辦公，Nexus Standard 或 Air 是最佳選擇；專業創作者建議選擇 Pro 或 Studio；企業用戶則應考慮 Enterprise 系列。
           </p>
         </div>
         
         <div class="faq-item glass">
-          <h3>產品是否支援國際保修？</h3>
+          <h3>Nexus Quantum 適合一般用戶嗎？</h3>
           <p>
-            是的，所有 LUMINA 產品都享受全球保修服務。我們在 150+ 個國家擁有授權服務中心。
-          </p>
-        </div>
-        
-        <div class="faq-item glass">
-          <h3>電池是否可以更換？</h3>
-          <p>
-            是的，電池可以由授權服務中心更換。我們建議每 2-3 年更換一次電池以保持最佳性能。
-          </p>
-        </div>
-        
-        <div class="faq-item glass">
-          <h3>產品是否相容於舊版軟體？</h3>
-          <p>
-            LUMINA 產品向下相容於過去 5 個版本的軟體。我們提供免費的軟體升級和技術支援。
+            Nexus Quantum 目前處於 Beta 階段，主要針對科研人員與技術愛好者，提供實驗性的量子糾纏通信功能。
           </p>
         </div>
       </div>
@@ -303,7 +115,7 @@ import SpecsComparator from "../components/SpecsComparator.vue";
 .specs-header p {
   font-size: 20px;
   color: var(--text-secondary);
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -410,10 +222,6 @@ import SpecsComparator from "../components/SpecsComparator.vue";
   transform: translateY(-2px);
 }
 
-.btn-download .icon {
-  font-size: 20px;
-}
-
 /* FAQ Section */
 .faq-section {
   margin: 100px 0;
@@ -468,15 +276,6 @@ import SpecsComparator from "../components/SpecsComparator.vue";
   
   .specs-details {
     grid-template-columns: 1fr;
-  }
-  
-  .download-buttons {
-    flex-direction: column;
-  }
-  
-  .btn-download {
-    width: 100%;
-    justify-content: center;
   }
   
   .faq-items {
