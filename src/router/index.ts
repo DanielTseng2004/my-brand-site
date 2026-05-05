@@ -6,6 +6,8 @@ import Environment from "../views/Environment.vue";
 import Specs from "../views/Specs.vue";
 import Experience from "../views/Experience.vue";
 import ProductList from "../views/ProductList.vue";
+import Ecosystem from "../views/Ecosystem.vue";
+import VirtualShowroom from "../views/VirtualShowroom.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -17,6 +19,8 @@ const router = createRouter({
     { path: "/environment", component: Environment },
     { path: "/specs", component: Specs },
     { path: "/experience", component: Experience },
+    { path: "/ecosystem", component: Ecosystem },
+    { path: "/virtual-showroom", component: VirtualShowroom },
   ],
   // 讓每次切換頁面都回到頂部，這對動畫網站很重要
   scrollBehavior() {
