@@ -132,8 +132,9 @@ const addToCart = (event: MouseEvent, item: any) => {
 <style scoped>
 .eco-container {
   padding: 120px 5% 60px;
-  background: #fbfbfd;
+  background: var(--bg-main);
   min-height: 100vh;
+  color: var(--text-primary);
 }
 .eco-hero {
   text-align: center;
@@ -156,8 +157,8 @@ const addToCart = (event: MouseEvent, item: any) => {
 }
 .item-card:hover {
   transform: translateY(-12px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-  border-color: #0066cc;
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
 }
 
 .image-area {
@@ -175,15 +176,16 @@ const addToCart = (event: MouseEvent, item: any) => {
   position: absolute;
   top: 15px;
   left: 15px;
-  background: #0066cc;
+  background: var(--accent);
   color: white;
   padding: 4px 12px;
   border-radius: 10px;
   font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .type-tag {
-  color: #86868b;
+  color: var(--text-secondary);
   font-size: 0.9rem;
   margin-bottom: 8px;
 }
@@ -193,15 +195,31 @@ const addToCart = (event: MouseEvent, item: any) => {
 }
 
 .cart-btn {
-  background: #f5f5f7;
-  border: none;
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  color: var(--accent);
   padding: 12px 20px;
   border-radius: 25px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all var(--transition-normal);
+  font-weight: 500;
 }
+
 .cart-btn:hover {
-  background: #e8e8ed;
+  background: var(--accent);
+  color: white;
+  transform: scale(1.05);
+}
+
+.dark .cart-btn {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+.dark .cart-btn:hover {
+  background: var(--accent);
+  color: var(--bg-main);
 }
 
 .cart-status {
@@ -213,24 +231,40 @@ const addToCart = (event: MouseEvent, item: any) => {
   display: flex;
   align-items: center;
   gap: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
+  background: var(--bg-main);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
 }
+
 .checkout-btn {
-  background: #000;
+  background: var(--accent);
   color: white;
   border: none;
   padding: 8px 20px;
   border-radius: 20px;
   cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+}
+
+.checkout-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+.dark .checkout-btn:hover {
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
 }
 
 :deep(.cart-ball) {
   position: fixed;
   width: 20px;
   height: 20px;
-  background: #0066cc;
+  background: var(--accent);
   border-radius: 50%;
   z-index: 9999;
   pointer-events: none;
+  box-shadow: 0 0 10px rgba(0, 102, 204, 0.4);
 }
 </style>

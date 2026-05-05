@@ -5,9 +5,27 @@
         <h3>LUMINA</h3>
         <p>次世代光子技術領導者，致力於創新與永續發展。</p>
         <div class="social-links">
-          <a href="#" class="social-icon">LinkedIn</a>
-          <a href="#" class="social-icon">Twitter</a>
-          <a href="#" class="social-icon">GitHub</a>
+          <a
+            href="#"
+            class="social-icon"
+            title="LinkedIn"
+          >
+            <Linkedin :size="18" />
+          </a>
+          <a
+            href="#"
+            class="social-icon"
+            title="Twitter"
+          >
+            <Twitter :size="18" />
+          </a>
+          <a
+            href="#"
+            class="social-icon"
+            title="GitHub"
+          >
+            <Github :size="18" />
+          </a>
         </div>
       </div>
       
@@ -56,6 +74,7 @@
 </template>
 
 <script setup lang="ts">
+import { Linkedin, Twitter, Github } from "lucide-vue-next";
 </script>
 
 <style scoped>
@@ -110,7 +129,15 @@
 }
 
 .footer-section a:hover {
-  color: #00d4ff;
+  color: var(--accent);
+}
+
+.dark .footer-section a {
+  color: var(--text-secondary);
+}
+
+.dark .footer-section a:hover {
+  color: var(--accent);
 }
 
 .social-links {
@@ -119,24 +146,39 @@
 }
 
 .social-icon {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
-  transition: 0.3s;
+  width: 40px;
+  height: 40px;
+  background: var(--accent-soft);
+  border-radius: 50%;
+  color: var(--accent);
+  transition: all var(--transition-normal);
+  border: 1px solid var(--border);
 }
 
 .social-icon:hover {
-  background: rgba(0, 212, 255, 0.2);
+  background: var(--accent);
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 102, 204, 0.2);
+}
+
+.dark .social-icon {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+.dark .social-icon:hover {
+  background: var(--accent);
+  color: var(--bg-main);
+  box-shadow: 0 8px 16px rgba(56, 189, 248, 0.3);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border);
   padding: 30px 0;
 }
 
@@ -148,7 +190,7 @@
 
 .footer-bottom p {
   font-size: 14px;
-  color: #64748b;
+  color: var(--text-secondary);
 }
 
 .certifications {
@@ -159,10 +201,27 @@
 .cert-badge {
   font-size: 12px;
   padding: 6px 12px;
-  background: rgba(0, 212, 255, 0.1);
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  background: var(--accent-soft);
+  border: 1px solid rgba(0, 102, 204, 0.2);
   border-radius: 20px;
-  color: #00d4ff;
+  color: var(--accent);
+  transition: all var(--transition-fast);
+}
+
+.cert-badge:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.dark .cert-badge {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.2);
+  color: var(--accent);
+}
+
+.dark .cert-badge:hover {
+  background: var(--accent);
+  color: var(--bg-main);
 }
 
 @media (max-width: 768px) {

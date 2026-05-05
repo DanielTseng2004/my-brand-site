@@ -88,13 +88,26 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
   margin-left: 10px;
 }
 
 .theme-toggle:hover {
   background: var(--accent);
-  color: var(--bg-main);
+  color: white;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+.dark .theme-toggle {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+.dark .theme-toggle:hover {
+  background: var(--accent);
+  color: var(--bg-main);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
 }
 </style>

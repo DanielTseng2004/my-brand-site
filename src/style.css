@@ -1,16 +1,21 @@
 :root {
   --bg-main: #ffffff;
   --text-primary: #0f172a;
-  --text-secondary: #1e293b; /* 加深以提升可讀性 */
+  --text-secondary: #1e293b;
   --accent: #0066cc;
   --accent-soft: #f0f7ff;
   --border: rgba(0, 0, 0, 0.05);
   --nav-bg: rgba(255, 255, 255, 0.8);
   --selection-bg: #0066cc;
   --selection-text: #ffffff;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
 
   /* 漸層與背景 */
   --grad-blue: linear-gradient(135deg, #0066cc 0%, #00d4ff 100%);
+  --grad-photon: linear-gradient(135deg, #0066cc 0%, #00d4ff 100%);
   --mesh-bg:
     radial-gradient(at 0% 0%, hsla(210, 100%, 98%, 1) 0, transparent 50%),
     radial-gradient(at 100% 0%, hsla(190, 100%, 97%, 1) 0, transparent 50%),
@@ -25,6 +30,12 @@
   --transition-fast: 0.2s ease-out;
   --transition-normal: 0.3s ease-out;
   --transition-slow: 0.5s ease-out;
+
+  /* Radix Vue 相關變數 */
+  --radix-dialog-content-bg: #ffffff;
+  --radix-dialog-content-border: rgba(0, 0, 0, 0.05);
+  --radix-popover-content-bg: #ffffff;
+  --radix-popover-content-border: rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -55,8 +66,8 @@ body {
     sans-serif;
   overflow-x: hidden;
   line-height: 1.6;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE / Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* Container */
@@ -75,6 +86,7 @@ h5,
 h6 {
   font-weight: 700;
   line-height: 1.2;
+  color: var(--text-primary);
 }
 
 h1 {
@@ -95,6 +107,7 @@ h4 {
 
 p {
   line-height: 1.6;
+  color: var(--text-secondary);
 }
 
 a {
@@ -319,7 +332,7 @@ button:active {
   }
 }
 
-/* Dark Mode Support */
+/* ========== DARK MODE SUPPORT ========== */
 .dark {
   --bg-main: #0f172a;
   --text-primary: #f8fafc;
@@ -330,15 +343,61 @@ button:active {
   --nav-bg: rgba(15, 23, 42, 0.8);
   --selection-bg: #38bdf8;
   --selection-text: #0f172a;
-  --mesh-bg: 
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+  --mesh-bg:
     radial-gradient(at 0% 0%, hsla(222, 47%, 11%, 1) 0, transparent 50%),
     radial-gradient(at 100% 0%, hsla(217, 33%, 17%, 1) 0, transparent 50%),
     radial-gradient(at 100% 100%, hsla(222, 47%, 11%, 1) 0, transparent 50%);
+
+  /* Dark mode Radix Vue 變數 */
+  --radix-dialog-content-bg: #1e293b;
+  --radix-dialog-content-border: rgba(255, 255, 255, 0.1);
+  --radix-popover-content-bg: #1e293b;
+  --radix-popover-content-border: rgba(255, 255, 255, 0.1);
+}
+
+.dark body {
+  background: var(--bg-main);
+  background-image: var(--mesh-bg);
+  color: var(--text-primary);
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: var(--text-primary);
+}
+
+.dark p {
+  color: var(--text-secondary);
 }
 
 .dark .glass {
   background: rgba(30, 41, 59, 0.7);
   border-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark .glass:hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Radix Vue Dark Mode Support */
+.dark [data-radix-dialog-content],
+.dark [data-radix-popover-content] {
+  background: var(--radix-dialog-content-bg);
+  color: var(--text-primary);
+  border-color: var(--radix-dialog-content-border);
+}
+
+.dark [data-radix-dialog-overlay] {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /* Print Styles */
@@ -371,4 +430,190 @@ input:focus-visible {
 button,
 a {
   transition: all var(--transition-normal);
+}
+
+/* ========== RADIX VUE COMPONENT STYLES ========== */
+
+/* Button Component */
+[data-radix-button] {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: var(--transition-normal);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+[data-radix-button]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+[data-radix-button]:active {
+  transform: scale(0.98);
+}
+
+/* Dialog Component */
+[data-radix-dialog-content] {
+  background: var(--radix-dialog-content-bg);
+  border: 1px solid var(--radix-dialog-content-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  padding: 24px;
+  color: var(--text-primary);
+}
+
+[data-radix-dialog-overlay] {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+/* Popover Component */
+[data-radix-popover-content] {
+  background: var(--radix-popover-content-bg);
+  border: 1px solid var(--radix-popover-content-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  padding: 16px;
+  color: var(--text-primary);
+}
+
+/* Dropdown Menu Component */
+[data-radix-dropdown-menu-content] {
+  background: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  padding: 8px;
+  color: var(--text-primary);
+}
+
+[data-radix-dropdown-menu-item] {
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+[data-radix-dropdown-menu-item]:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Tabs Component */
+[data-radix-tabs-list] {
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 16px;
+}
+
+[data-radix-tabs-trigger] {
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  border-bottom: 2px solid transparent;
+}
+
+[data-radix-tabs-trigger]:hover {
+  color: var(--text-primary);
+}
+
+[data-radix-tabs-trigger][data-state="active"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Tooltip Component */
+[data-radix-tooltip-content] {
+  background: var(--text-primary);
+  color: var(--bg-main);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.dark [data-radix-tooltip-content] {
+  background: var(--text-secondary);
+  color: var(--bg-main);
+}
+
+/* Select Component */
+[data-radix-select-content] {
+  background: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  padding: 8px;
+  color: var(--text-primary);
+}
+
+[data-radix-select-item] {
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+[data-radix-select-item]:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+[data-radix-select-item][data-state="checked"] {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Accordion Component */
+[data-radix-accordion-item] {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+[data-radix-accordion-trigger] {
+  padding: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+[data-radix-accordion-trigger]:hover {
+  background: var(--accent-soft);
+}
+
+[data-radix-accordion-content] {
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.02);
+  color: var(--text-secondary);
+}
+
+.dark [data-radix-accordion-content] {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Lucide Vue Icons */
+.lucide {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+}
+
+.dark .lucide {
+  color: var(--text-primary);
 }

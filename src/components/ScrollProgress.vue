@@ -32,14 +32,19 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 3px;
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--border);
   z-index: 999;
 }
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #0066cc 0%, #00d4ff 100%);
+  background: var(--grad-blue);
   width: 0%;
   transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px rgba(0, 102, 204, 0.3);
+}
+
+.dark .progress-bar {
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 }
 </style>

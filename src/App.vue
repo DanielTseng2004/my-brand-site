@@ -2,9 +2,9 @@
   <div class="app-root">
     <ScrollProgress />
     <CursorFollower />
-    
+
     <TheNavbar />
-    
+
     <router-view v-slot="{ Component }">
       <transition
         name="page"
@@ -13,7 +13,7 @@
         <component :is="Component" />
       </transition>
     </router-view>
-    
+
     <Footer />
   </div>
 </template>
@@ -31,7 +31,9 @@ import CursorFollower from "./components/CursorFollower.vue";
   min-height: 100vh;
   background: var(--bg-main);
   color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .page-enter-active,

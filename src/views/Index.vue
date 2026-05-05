@@ -1,37 +1,60 @@
 <template>
-  <div class="index-page">
+  <div
+    class="index-page"
+    ref="container"
+  >
+    <!-- 背景流體裝飾 -->
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
-    
-    <!-- Hero Section -->
+
+    <!-- Hero Section: 套用 v-motion 進場動畫 -->
     <section class="hero container">
-      <div class="hero-content">
+      <div
+        class="hero-content"
+        v-motion
+        :initial="{ opacity: 0, y: 100 }"
+        :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }"
+      >
         <div class="badge">次世代光子技術</div>
         <h1>
           智能光子<br />
           <span class="text-gradient">無限可能</span>
         </h1>
         <p class="hero-sub">
-          LUMINA Nexus 是革命性的光子處理平台，結合先進的量子感測與 6G 連接技術，為您的未來賦能。
+          LUMINA Nexus 是革命性的光子處理平台，結合先進的量子感測與 6G
+          連接技術，為您的未來賦能。
         </p>
         <div class="hero-btns">
-          <button class="btn-primary">探索 Nexus Pro</button>
+          <button
+            class="btn-primary"
+            @click="handleExplore"
+          >
+            探索 Nexus Pro
+          </button>
           <button class="btn-text">觀看演示 <span>→</span></button>
         </div>
       </div>
+
+      <!-- 效能數據卡片：使用 GSAP 數字跳動 -->
       <div class="hero-data">
-        <div class="data-card glass">
-          <span class="val">0.01ms</span>
+        <div
+          class="data-card glass"
+          v-motion-roll-visible-right
+        >
+          <span class="val">{{ stats.latency }}ms</span>
           <span class="lab">超低延遲</span>
         </div>
-        <div class="data-card glass">
-          <span class="val">100%</span>
+        <div
+          class="data-card glass"
+          v-motion-roll-visible-right
+        >
+          <span class="val">{{ stats.efficiency }}%</span>
           <span class="lab">能源效率</span>
         </div>
       </div>
     </section>
-    
-    <!-- Core Advantages -->
+
+    <!-- 核心優勢：套用 v-motion-slide-visible-bottom 滾動觸發 -->
     <section class="advantages">
       <div class="container">
         <div class="section-header">
@@ -39,132 +62,89 @@
           <h2>為什麼選擇 LUMINA</h2>
         </div>
         <div class="advantages-grid">
-          <div class="advantage-card glass">
-            <div class="icon">⚡</div>
-            <h3>極速性能</h3>
-            <p>業界領先的處理速度，0.01ms 超低延遲，實現即時響應。</p>
-            <div class="metric">800% 更快</div>
-          </div>
-          <div class="advantage-card glass">
-            <div class="icon">🔋</div>
-            <h3>能源高效</h3>
-            <p>革命性的能源管理系統，降低功耗 95%，延長使用壽命。</p>
-            <div class="metric">0.5W 功耗</div>
-          </div>
-          <div class="advantage-card glass">
-            <div class="icon">🛡️</div>
-            <h3>量子安全</h3>
-            <p>採用量子加密技術，提供軍事級別的數據保護。</p>
-            <div class="metric">256-bit 加密</div>
-          </div>
-          <div class="advantage-card glass">
-            <div class="icon">🌍</div>
-            <h3>環保永續</h3>
-            <p>100% 可回收材料，碳中和製造，致力於綠色未來。</p>
-            <div class="metric">ISO 14001</div>
+          <div
+            v-for="(adv, index) in advantageList"
+            :key="index"
+            class="advantage-card glass"
+            v-motion-slide-visible-bottom
+            :delay="index * 100"
+          >
+            <div class="icon">{{ adv.icon }}</div>
+            <h3>{{ adv.title }}</h3>
+            <p>{{ adv.desc }}</p>
+            <div class="metric">{{ adv.metric }}</div>
           </div>
         </div>
       </div>
     </section>
-    
-    <!-- Scenarios Section -->
-    <section class="scenarios bg-white">
-      <div class="container split">
-        <div class="side-text">
-          <span class="label">應用場景</span>
-          <h2>
-            無限應用<br />
-            無處不在
-          </h2>
-          <p>
-            LUMINA Nexus 的多功能設計適用於各種行業，從智能城市到醫療診斷，從工業自動化到消費電子。
-          </p>
-          <ul class="feature-list">
-            <li>智能城市基礎設施</li>
-            <li>醫療影像與診斷</li>
-            <li>工業物聯網監控</li>
-            <li>自主駕駛系統</li>
-            <li>增強現實體驗</li>
-          </ul>
-        </div>
-        <div class="side-visual glass">
-          <div class="placeholder-art">
-            <div class="visual-element element-1"></div>
-            <div class="visual-element element-2"></div>
-            <div class="visual-element element-3"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-      <div class="container">
-        <div class="section-header">
-          <span class="label">客戶見證</span>
-          <h2>業界領袖的信任</h2>
-        </div>
-        <div class="testimonials-grid">
-          <div class="testimonial-card glass">
-            <div class="stars">★★★★★</div>
-            <p class="quote">
-              "LUMINA 的技術完全改變了我們的業務流程，效率提升了 3 倍，成本降低了 40%。"
-            </p>
-            <div class="author">
-              <div class="avatar">TK</div>
-              <div class="author-info">
-                <div class="name">田中健一</div>
-                <div class="title">首席技術官 - TechCorp Japan</div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="testimonial-card glass">
-            <div class="stars">★★★★★</div>
-            <p class="quote">
-              "在醫療診斷領域，LUMINA 的精確度和速度無與倫比。我們已經幫助了數千名患者。"
-            </p>
-            <div class="author">
-              <div class="avatar">SM</div>
-              <div class="author-info">
-                <div class="name">Sarah Miller</div>
-                <div class="title">醫學博士 - Global Health Institute</div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="testimonial-card glass">
-            <div class="stars">★★★★★</div>
-            <p class="quote">
-              "LUMINA 的環保承諾與卓越性能相結合，正是我們尋找的合作夥伴。"
-            </p>
-            <div class="author">
-              <div class="avatar">LW</div>
-              <div class="author-info">
-                <div class="name">李偉</div>
-                <div class="title">永續發展總監 - GreenTech Solutions</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section class="cta-section">
-      <div class="container">
-        <h2>準備好體驗未來了嗎？</h2>
-        <p>加入全球數千家企業，選擇 LUMINA 作為您的創新夥伴。</p>
-        <div class="cta-buttons">
-          <button class="btn-primary btn-large">立即開始免費試用</button>
-          <button class="btn-secondary btn-large">預約產品演示</button>
-        </div>
-      </div>
-    </section>
+
+    <!-- 購物車預覽（參考 source 2 的互動邏輯） -->
+    <div
+      class="cart-status glass"
+      v-if="cartCount > 0"
+      v-motion-slide-right
+    >
+      🛒 已預約 {{ cartCount }} 台 Nexus
+      <button class="checkout-btn">立即預訂</button>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, reactive, onMounted } from "vue";
+import { gsap } from "gsap";
+
+const container = ref(null);
+const cartCount = ref(0);
+
+const stats = reactive({
+  latency: 0.1,
+  efficiency: 0,
+});
+
+const advantageList = [
+  {
+    icon: "⚡",
+    title: "極速性能",
+    desc: "業界領先的處理速度，0.01ms 超低延遲",
+    metric: "800% 更快",
+  },
+  {
+    icon: "🔋",
+    title: "能源高效",
+    desc: "降低功耗 95%，延長使用壽命",
+    metric: "0.5W 功耗",
+  },
+  {
+    icon: "🛡️",
+    title: "量子安全",
+    desc: "採用量子加密技術，提供軍事級別保護",
+    metric: "256-bit 加密",
+  },
+  {
+    icon: "🌍",
+    title: "環保永續",
+    desc: "100% 可回收材料，碳中和製造",
+    metric: "ISO 14001",
+  },
+];
+
+// 初始化數字跳動動畫
+onMounted(() => {
+  gsap.to(stats, {
+    duration: 2,
+    latency: 0.01,
+    efficiency: 100,
+    ease: "power2.out",
+  });
+});
+
+const handleExplore = (event: MouseEvent) => {
+  cartCount.value++;
+  const el = event.currentTarget as HTMLElement;
+  // GSAP 點擊回饋動畫
+  gsap.to(el, { scale: 0.95, duration: 0.1, yoyo: true, repeat: 1 });
+};
 </script>
 
 <style scoped>
@@ -172,30 +152,15 @@
   position: relative;
   padding-top: 120px;
   overflow: hidden;
+  background: var(--bg-main);
+  color: var(--text-primary);
 }
 
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  z-index: -1;
-  opacity: 0.4;
-}
-
-.blob-1 {
-  width: 500px;
-  height: 500px;
-  background: #00d4ff;
-  top: -100px;
-  right: -100px;
-}
-
-.blob-2 {
-  width: 600px;
-  height: 600px;
-  background: #0066cc;
-  bottom: 10%;
-  left: -200px;
+.text-gradient {
+  background: var(--grad-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero {
@@ -207,106 +172,81 @@
 }
 
 .hero-content {
-  max-width: 650px;
+  flex: 1;
 }
 
 .badge {
+  display: inline-block;
   background: var(--accent-soft);
   color: var(--accent);
   padding: 8px 16px;
   border-radius: 20px;
-  font-weight: 700;
-  font-size: 12px;
-  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
   margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-h1 {
-  font-size: 90px;
-  line-height: 1.05;
-  font-weight: 800;
-  margin-bottom: 24px;
-  letter-spacing: -2px;
+  border: 1px solid var(--border);
 }
 
 .hero-sub {
-  font-size: 22px;
+  font-size: 18px;
   color: var(--text-secondary);
-  margin-bottom: 40px;
+  margin: 20px 0;
   line-height: 1.6;
 }
 
 .hero-btns {
   display: flex;
-  gap: 20px;
-  align-items: center;
-  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 30px;
 }
 
 .btn-primary {
   background: var(--accent);
-  color: var(--bg-main);
+  color: white;
   border: none;
-  padding: 18px 40px;
-  border-radius: 30px;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-size: 16px;
   font-weight: 600;
-  font-size: 18px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all var(--transition-normal);
 }
 
 .btn-primary:hover {
-  background: #0052a3;
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 102, 204, 0.3);
 }
 
-.btn-secondary {
-  background: rgba(0, 102, 204, 0.1);
-  color: var(--accent);
-  border: 2px solid var(--accent);
-  padding: 16px 40px;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 18px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn-secondary:hover {
-  background: var(--accent);
-  color: #fff;
+.btn-primary:active {
+  transform: scale(0.98);
 }
 
 .btn-text {
   background: transparent;
-  border: none;
   color: var(--accent);
-  font-size: 18px;
+  border: 1px solid var(--border);
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .btn-text:hover {
-  transform: translateX(5px);
-}
-
-.btn-text span {
-  margin-left: 5px;
-}
-
-.btn-large {
-  padding: 16px 48px;
-  font-size: 16px;
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .hero-data {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  flex: 1;
 }
 
 .data-card {
@@ -314,53 +254,56 @@ h1 {
   border-radius: 24px;
   text-align: center;
   min-width: 180px;
-  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
 }
 
 .data-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
-.data-card .val {
+.val {
   display: block;
   font-size: 32px;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--accent);
   margin-bottom: 8px;
 }
 
-.data-card .lab {
+.lab {
+  display: block;
   font-size: 14px;
   color: var(--text-secondary);
+  font-weight: 500;
 }
 
-/* Advantages Section */
+/* 核心優勢區段 */
 .advantages {
-  padding: 120px 0;
-  background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(0, 212, 255, 0.05) 100%);
+  padding: 100px 0;
+  background: var(--bg-main);
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
-.section-header .label {
+.label {
   display: inline-block;
   background: var(--accent-soft);
   color: var(--accent);
   padding: 6px 14px;
   border-radius: 20px;
-  font-weight: 700;
   font-size: 12px;
-  margin-bottom: 20px;
+  font-weight: 700;
   text-transform: uppercase;
-}
-
-.section-header h2 {
-  font-size: 56px;
-  font-weight: 800;
-  margin: 0;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
 }
 
 .advantages-grid {
@@ -371,304 +314,168 @@ h1 {
 
 .advantage-card {
   padding: 40px;
-  border-radius: 30px;
-  transition: 0.3s;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  text-align: center;
 }
 
 .advantage-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
 }
 
-.advantage-card .icon {
+.icon {
   font-size: 48px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .advantage-card h3 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
 }
 
 .advantage-card p {
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 20px;
-  font-size: 15px;
+  margin-bottom: 16px;
+  font-size: 14px;
 }
 
 .metric {
-  font-weight: 700;
+  display: inline-block;
+  background: var(--accent-soft);
   color: var(--accent);
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Scenarios Section */
-.scenarios {
-  padding: 120px 0;
-  background: var(--bg-main);
-}
-
-.bg-white {
-  background: var(--bg-main);
-}
-
-.split {
-  display: flex;
-  gap: 100px;
-  align-items: center;
-}
-
-.side-text {
-  flex: 1;
-}
-
-.side-text h2 {
-  font-size: 56px;
-  margin: 20px 0;
-  font-weight: 800;
-}
-
-.side-text p {
-  font-size: 18px;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 30px;
-}
-
-.feature-list {
-  list-style: none;
-  margin-top: 30px;
-}
-
-.feature-list li {
-  margin-bottom: 16px;
-  font-weight: 600;
-  padding-left: 30px;
-  position: relative;
-  font-size: 16px;
-}
-
-.feature-list li::before {
-  content: "✓";
-  color: var(--accent);
-  position: absolute;
-  left: 0;
-  font-size: 20px;
-  font-weight: 800;
-}
-
-.side-visual {
-  flex: 1;
-  height: 500px;
-  border-radius: 40px;
-  background: linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.placeholder-art {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.visual-element {
-  position: absolute;
-  border-radius: 50%;
-  animation: float 6s ease-in-out infinite;
-}
-
-.element-1 {
-  width: 120px;
-  height: 120px;
-  background: rgba(0, 102, 204, 0.3);
-  top: 20%;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.element-2 {
-  width: 80px;
-  height: 80px;
-  background: rgba(0, 212, 255, 0.3);
-  top: 60%;
-  right: 15%;
-  animation-delay: 1s;
-}
-
-.element-3 {
-  width: 100px;
-  height: 100px;
-  background: rgba(0, 102, 204, 0.2);
-  bottom: 10%;
-  left: 30%;
-  animation-delay: 2s;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-/* Testimonials Section */
-.testimonials {
-  padding: 120px 0;
-  background: linear-gradient(135deg, rgba(0, 102, 204, 0.03) 0%, rgba(0, 212, 255, 0.03) 100%);
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-}
-
-.testimonial-card {
-  padding: 40px;
-  border-radius: 30px;
-  transition: 0.3s;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
-}
-
-.stars {
-  color: #fbbf24;
-  font-size: 14px;
-  margin-bottom: 15px;
-  letter-spacing: 2px;
-}
-
-.quote {
-  font-size: 16px;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 25px;
-  font-style: italic;
-}
-
-.author {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: var(--grad-blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.author-info {
-  flex: 1;
-}
-
-.name {
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 4px;
-}
-
-.title {
+  padding: 8px 16px;
+  border-radius: 12px;
   font-size: 13px;
-  color: var(--text-secondary);
+  font-weight: 600;
+  border: 1px solid rgba(0, 102, 204, 0.2);
 }
 
-/* CTA Section */
-.cta-section {
-  padding: 100px 0;
-  background: linear-gradient(135deg, #0066cc 0%, #00d4ff 100%);
-  text-align: center;
-  color: #fff;
-}
-
-.cta-section h2 {
-  font-size: 56px;
-  margin-bottom: 20px;
-  font-weight: 800;
-}
-
-.cta-section p {
-  font-size: 20px;
-  margin-bottom: 40px;
-  opacity: 0.95;
-}
-
-.cta-buttons {
+/* 購物車狀態 */
+.cart-status {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 20px 30px;
+  border-radius: 40px;
+  background: var(--bg-main);
+  backdrop-filter: blur(20px);
   display: flex;
+  align-items: center;
   gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
+  box-shadow: var(--shadow-lg);
+  z-index: 100;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
 }
 
-.cta-section .btn-primary {
-  background: #fff;
+.checkout-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+}
+
+.checkout-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+/* 裝飾背景 */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.15;
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--accent);
+  top: -100px;
+  right: -100px;
+}
+
+.blob-2 {
+  width: 600px;
+  height: 600px;
+  background: var(--accent);
+  bottom: 10%;
+  left: -200px;
+}
+
+.dark .blob-1,
+.dark .blob-2 {
+  opacity: 0.08;
+}
+
+/* 深色模式 */
+.dark .data-card {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .advantage-card {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .advantage-card:hover {
+  border-color: var(--accent);
+}
+
+.dark .metric {
+  background: rgba(56, 189, 248, 0.1);
   color: var(--accent);
+  border-color: rgba(56, 189, 248, 0.2);
 }
 
-.cta-section .btn-primary:hover {
-  background: rgba(255, 255, 255, 0.9);
+.dark .checkout-btn:hover {
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
 }
 
-.cta-section .btn-secondary {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border-color: #fff;
-}
-
-.cta-section .btn-secondary:hover {
-  background: #fff;
-  color: var(--accent);
-}
-
+/* 響應式設計 */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
-    min-height: auto;
-    padding: 60px 0;
+    text-align: center;
+    gap: 40px;
   }
-  
+
   h1 {
     font-size: 48px;
   }
-  
-  .split {
+
+  .hero-btns {
     flex-direction: column;
-    gap: 60px;
-  }
-  
-  .side-visual {
-    height: 300px;
-  }
-  
-  .section-header h2 {
-    font-size: 36px;
-  }
-  
-  .cta-section h2 {
-    font-size: 36px;
-  }
-  
-  .cta-buttons {
-    flex-direction: column;
-  }
-  
-  .btn-large {
     width: 100%;
+  }
+
+  .btn-primary,
+  .btn-text {
+    width: 100%;
+  }
+
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-status {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    flex-direction: column;
   }
 }
 </style>
