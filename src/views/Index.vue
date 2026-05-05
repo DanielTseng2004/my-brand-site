@@ -94,7 +94,6 @@
 import { ref, reactive, onMounted } from "vue";
 import { gsap } from "gsap";
 
-const container = ref(null);
 const cartCount = ref(0);
 
 const stats = reactive({

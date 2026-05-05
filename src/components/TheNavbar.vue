@@ -116,7 +116,6 @@ import {
   DropdownMenuPortal,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
 } from "radix-vue";
 import { ChevronDown, Zap } from "lucide-vue-next";
 import ThemeToggle from "./ThemeToggle.vue";
